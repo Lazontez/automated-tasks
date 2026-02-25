@@ -1,12 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const dotenv = require('dotenv').config()
 
-// --- CONFIG ---
 const WATCH_FOLDER = path.join(os.homedir(), 'Downloads');
-const DESTINATION_FOLDER = 'C:\\Users\\lazon\\FortyAU\\BankVOD Docs\\QA Docs\\Test Evidence';
+const DESTINATION_FOLDER = process.env.testEvidenceDestinationFolder;
 const PDF_PATTERN = /^ng-/i; 
-// --------------
 
 if (!fs.existsSync(DESTINATION_FOLDER)) {
   fs.mkdirSync(DESTINATION_FOLDER, { recursive: true });
